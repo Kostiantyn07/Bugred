@@ -17,7 +17,7 @@ namespace Bugred
         [Test]
         public void RequestTestCreate()
         {
-            RestClient client = new RestClient("http://users.bugred.ru/tasks/rest/createuser")
+            RestClient client = new RestClient("http://users.bugred.ru/tasks/rest/createuser") // Перенести в хелпер   // 
             {
                 Timeout = 300000
             };
