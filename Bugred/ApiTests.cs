@@ -17,7 +17,7 @@ namespace Bugred
         [Test]
         public void RequestTestCreate()
         {
-            RestClient client = new RestClient("http://users.bugred.ru/tasks/rest/createuser") // Перенести в хелпер   // 
+            RestClient client = new RestClient("http://users.bugred.ru/tasks/rest/createuser")
             {
                 Timeout = 300000
             };
@@ -37,19 +37,19 @@ namespace Bugred
             Assert.AreEqual(body["email"], json["account"]["email"]?.ToString());
         }
 
-        public Dictionary<string, string> GenerateUserData()
-        {
-            string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
-            string email = now + "@test.com";
-            string userId = now;
-            string userName = "Name" + now;
-            return new Dictionary<string, string>()
-            {
-                {"email", email },
-                {"id", userId},
-                {"password", "mySecretPass123"},
-                {"username", userName}
-            };
+        //public Dictionary<string, string> GenerateUserData()
+        //{
+        //    string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
+        //    string email = now + "@test.com";
+        //    string userId = now;
+        //    string userName = "Name" + now;
+        //    return new Dictionary<string, string>()
+        //    {
+        //        {"email", email },
+        //        {"id", userId},
+        //        {"password", "mySecretPass123"},
+        //        {"username", userName}
+        //    };
         }
     }
 }

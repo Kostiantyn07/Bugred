@@ -10,36 +10,18 @@ namespace Bugred
     class RequestHelper
     {
         private RestClient _client;
+        private string mainUrl = "http://users.bugred.ru/tasks/rest";
 
-
-        RequestHelper requetHelper = new RequestHelper("http://users.bugred.ru/");
-        IRestResponse response = requetHelper.SendPostRequest(model);
-
-
-        public RequestHelper(string requestUrl)
+        public RequestHelper(string path)
         {
-            _client = new RestClient(requestUrl);
+            _client = new RestClient(mainUrl + path);
         }
 
-        public IRestResponse SendGetRequest(Dictionary<string, string> parametrs)
+        public IRestResponse SendGetRequest(object body) // Буду передавать Гет.
         {
-            RestRequest = new RestRequest(Method.GET);
-            requst.AddHeader("content-type", "application/json");
-
-            foreach (var param in parametrs)
-                request.AddParametr(param.Key, param.Value);
-
-            IRestResponse response = _client.Execute(request);
-            return response;
-        }
-
-        public IRestResponse SendPostRequest(object body)
-        {
-            RestRequest request = new RestRequect(Method.POST);
+            RestRequest request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-
-            request.RequestFormat = DataFormat = DataFormat.Json;
-            request.AddJsonBody(JsonConvert.SerializeObject(body));
+            request.AddJsonBody(body);
 
             IRestResponse response = _client.Execute(request);
             return response;
