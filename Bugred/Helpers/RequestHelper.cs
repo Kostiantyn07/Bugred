@@ -23,7 +23,7 @@ namespace Bugred
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(body);
 
-            IRestResponse response = _client.Execute(request);
+            IRestResponse response = _client.Execute(request); // Метод который передает запрос (объект, который он дальше прокидывает)
             return response;
         }
     }
