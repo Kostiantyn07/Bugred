@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,11 @@ namespace Bugred
     class RequestHelper
     {
         private RestClient _client;
+
+
+        RequestHelper requetHelper = new RequestHelper("http://users.bugred.ru/");
+        IRestResponse response = requetHelper.SendPostRequest(model);
+
 
         public RequestHelper(string requestUrl)
         {

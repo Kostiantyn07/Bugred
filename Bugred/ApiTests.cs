@@ -23,7 +23,7 @@ namespace Bugred
             };
             RestRequest request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-           // request.AddHeader("Authorization", "Bearer NTgxMTc3ZTgtNjUwNi00MTBhLWI1Y2MtOGY1OWNiMGI5NDRl");
+            // request.AddHeader("Authorization", "Bearer NTgxMTc3ZTgtNjUwNi00MTBhLWI1Y2MtOGY1OWNiMGI5NDRl");
 
             Dictionary<string, string> body = GenerateUserData();
             request.AddJsonBody(body);
@@ -36,7 +36,7 @@ namespace Bugred
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(body["email"], json["account"]["email"]?.ToString());
         }
-        
+
         public Dictionary<string, string> GenerateUserData()
         {
             string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
