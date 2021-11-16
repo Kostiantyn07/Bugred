@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bugred
 {
-    public class API
+    public class RegistrationRequestModel
     {
         [JsonProperty("email")]
         public string Email { get; set; }
@@ -18,15 +18,27 @@ namespace Bugred
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        public API(string email, string name, string password)
-        {
-            this.Email = email;
-            this.Name = name;
-            this.Password = password;
-        }
+        [JsonProperty("companyName")]
+        public string CompanyName { get; set; }
 
-        public API()
-        {
-        }
+        [JsonProperty("companyType")]
+        public string CompanyType { get; set; }
+
+        [JsonProperty("emailOwner")]
+        public string EmailOwner { get; set; }
+
+        [JsonProperty("companyUsers")]
+        public string CompanyUsers { get; set; }
+
+        //public RegistrationRequestModel(string email, string name, string password, string emailOwner, string companyName, string companyType, string companyUsers)
+        //{
+        //    this.Email = email;
+        //    this.Name = name;
+        //    this.Password = password;
+        //    this.CompanyName = companyName;
+        //    this.CompanyType = companyType;
+        //    this.EmailOwner = emailOwner;
+        //    this.CompanyUsers = companyUsers;
+        //}
     }
 }

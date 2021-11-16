@@ -28,7 +28,7 @@ namespace Bugred
             return response;
         }
 
-        internal IRestResponse SendPostRequest(API body)
+        internal IRestResponse SendPostRequest(RegistrationRequestModel body)
         {
             throw new NotImplementedException();
         }
