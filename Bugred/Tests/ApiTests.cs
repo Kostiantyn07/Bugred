@@ -2,9 +2,7 @@
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Net;
+
 
 namespace Bugred
 {

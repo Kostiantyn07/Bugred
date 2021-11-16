@@ -28,10 +28,5 @@ namespace Bugred
             IRestResponse response = _client.Execute(request);
             return response;
         }
-
-        internal IRestResponse SendPostRequest(RegistrationRequestModel body)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
