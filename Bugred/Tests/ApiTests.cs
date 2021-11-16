@@ -18,9 +18,8 @@ namespace Bugred
             RequestHelper requestHelper = new RequestHelper("tasks/rest/doregister");
 
             RegistrationRequestModel body = new RegistrationRequestModel()
-
             {
-                Email = "arkadii" + helper + "@mail.ru",
+                Email = "arkadii@mail.ru",
                 Name = "kololo",
                 Password = "1"
             };
@@ -49,7 +48,7 @@ namespace Bugred
         }
 
         [Test]
-        public void CreateUserWithTasks(string email, string name)
+        public void CreateUserWithTasks()
         {
             RegistrationRequestModel body = new RegistrationRequestModel()
             {
@@ -75,7 +74,7 @@ namespace Bugred
                 CompanyName = "Алкоголики и тунеядцы",
                 CompanyType = "ООО",
                 EmailOwner = "aa+1@mail.com",
-                CompanyUsers = "k.galchenko27@gmail.com"
+                //CompanyUsers = new List<string>()
             };
 
             RequestHelper requestHelper = new RequestHelper("/doregister");

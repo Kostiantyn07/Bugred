@@ -21,13 +21,5 @@ namespace Bugred.Models
         [JsonProperty("company_users")]
         public string CompanyUsers { get; set; }
 
-        public CreateCompanyRequestModel( string email_owner, string company_name, string company_type, string company_users)
-        {
-            
-            this.CompanyName = company_name;
-            this.CompanyType = company_type;
-            this.EmailOwner = email_owner;
-            this.CompanyUsers = company_users;
-        }
     }
 }

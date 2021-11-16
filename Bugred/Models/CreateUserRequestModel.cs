@@ -21,12 +21,5 @@ namespace Bugred.Models
         [JsonProperty("companies")]
         public string Companies { get; set; }
 
-        public CreateUserRequestModel(string email, string name, string tasks, string companies)
-        {
-            this.Email = companies;
-            this.Name = tasks;
-            this.Tasks = name;
-            this.Companies = email;
-        }
     }
 }

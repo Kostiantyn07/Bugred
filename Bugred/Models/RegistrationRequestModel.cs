@@ -18,11 +18,6 @@ namespace Bugred
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        public RegistrationRequestModel(string email, string name, string password)
-        {
-            this.Email = email;
-            this.Name = name;
-            this.Password = password;
-        }
+       
     }
 }
