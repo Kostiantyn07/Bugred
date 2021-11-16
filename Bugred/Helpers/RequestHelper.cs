@@ -10,6 +10,7 @@ namespace Bugred
     class RequestHelper
     {
         private RestClient _client;
+
         private string mainUrl = "http://users.bugred.ru/tasks/rest";
 
         public RequestHelper(string path)
@@ -25,6 +26,11 @@ namespace Bugred
 
             IRestResponse response = _client.Execute(request); // Метод который передает запрос (объект, который он дальше прокидывает)
             return response;
+        }
+
+        internal IRestResponse SendPostRequest(API body)
+        {
+            throw new NotImplementedException();
         }
     }
 }

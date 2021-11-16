@@ -24,5 +24,9 @@ namespace Bugred
             this.Name = name;
             this.Password = password;
         }
+
+        public API()
+        {
+        }
     }
 }
