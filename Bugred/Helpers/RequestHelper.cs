@@ -18,13 +18,14 @@ namespace Bugred
             _client = new RestClient(mainUrl + path);
         }
 
-        public IRestResponse SendGetRequest(object body) // Буду передавать Гет.
+        public IRestResponse SendPostRequest(object body) 
         {
             RestRequest request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody(body);
 
-            IRestResponse response = _client.Execute(request); // Метод который передает запрос (объект, который он дальше прокидывает)
+            // Метод который передает запрос (объект, который он дальше прокидывает)
+            IRestResponse response = _client.Execute(request);
             return response;
         }
 

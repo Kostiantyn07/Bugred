@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bugred.Models;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using System;
@@ -19,7 +20,7 @@ namespace Bugred
             RegistrationRequestModel body = new RegistrationRequestModel()
 
             {
-                Email = "arkadii@mail.ru",
+                Email = "arkadii" + helper + "@mail.ru",
                 Name = "kololo",
                 Password = "1"
             };
@@ -27,7 +28,6 @@ namespace Bugred
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
             Assert.AreEqual("OK", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(body.Email, json["email"].ToString());
             Assert.AreEqual(body.Name, json["name"].ToString());
         }
@@ -35,28 +35,22 @@ namespace Bugred
         [Test]
         public void CreateUser()
         {
-            Helper helper = new Helper();
-
-            RegistrationRequestModel body = new RegistrationRequestModel()
+            CreateUserRequestModel body = new CreateUserRequestModel()
             {
                 Email = "joe@example.com",
-                Password = "mySecretPass123"
+                //Password = "mySecretPass123"
             };
             RequestHelper requestHelper = new RequestHelper("/doregister");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
 
             Assert.AreEqual("OK", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(body.Email, json["email"].ToString());
-            Assert.AreEqual(body.Password, json["password"].ToString());
         }
 
         [Test]
-        public void CreateUserWithTasks()
+        public void CreateUserWithTasks(string email, string name)
         {
-            Helper helper = new Helper();
-
             RegistrationRequestModel body = new RegistrationRequestModel()
             {
                 Email = "testfop@mail.com",
@@ -67,7 +61,6 @@ namespace Bugred
             JObject json = JObject.Parse(response.Content);
 
             Assert.AreEqual("OK", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(body.Email, json["email"].ToString());
             Assert.AreEqual(body.Name, json["name"].ToString());
         }
@@ -77,7 +70,7 @@ namespace Bugred
         {
             Helper helper = new Helper();
 
-            RegistrationRequestModel body = new RegistrationRequestModel()
+            CreateCompanyRequestModel body = new CreateCompanyRequestModel()
             {
                 CompanyName = "Алкоголики и тунеядцы",
                 CompanyType = "ООО",
@@ -90,7 +83,6 @@ namespace Bugred
             JObject json = JObject.Parse(response.Content);
 
             Assert.AreEqual("OK", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.AreEqual(body.CompanyName, json["companyName"].ToString());
             Assert.AreEqual(body.CompanyType, json["companyType"].ToString());
             Assert.AreEqual(body.EmailOwner, json["emailOwner"].ToString());
